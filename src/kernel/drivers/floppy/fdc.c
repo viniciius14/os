@@ -1,15 +1,5 @@
 #include "fdc.h"
 
-// static fdcRegStatusA_s     *fdcStatA      = (fdcRegStatusA_s     *) FDC_ADDR_STATUS_A;
-// static fdcRegStatusB_s     *fdcStatB      = (fdcRegStatusB_s     *) FDC_ADDR_STATUS_B;
-// static fdcRegDigOut_s      *fdcDigOut     = (fdcRegDigOut_s      *) FDC_ADDR_DIGITAL_OUT;
-// static fdcRegTapeDrv_s     *fdcTapeDrv    = (fdcRegTapeDrv_s     *) FDC_ADDR_TAPE_DRIVE;
-// static fdcRegMainStatus_s  *fdcMainStat   = (fdcRegMainStatus_s  *) FDC_ADDR_MAIN_STATUS;
-// static fdcRegDataRateSel_s *fdcDataRate   = (fdcRegDataRateSel_s *) FDC_ADDR_DATA_RATE_SEL;
-// static uint8_t *fifo                      = (uint8_t *)             FDC_ADDR_DATA_FIFO;
-// static fdcRegDigInp_s      *fdcDigIn      = (fdcRegDigInp_s      *) FDC_ADDR_DIGITAL_IN;
-// static fdcRegConfigCtrl_s  *fdcConfigCtrl = ( fdcRegConfigCtrl_s *) FDC_ADDR_CONFIG_CTRL;
-
 /* TEMP DELETE LATER */
 uint16_t *mem = (uint16_t *)0xB8000;
 static uint8_t cursor_x = 0;
@@ -31,8 +21,7 @@ void print_char(char letter) {
                 screen_clear();
                 cursor_y = 0;
             }
-        }
-        else {
+        } else {
             uint8_t  attributeByte = (0 << 4) | (0x0F & 0x0F);
 
             uint16_t *location = mem + (cursor_y * 80 + cursor_x);
@@ -43,13 +32,12 @@ void print_char(char letter) {
 /* TEMP DELETE LATER */
 
 status_e FdcInit(void) {
-
+    /* temp */
     print_string("In floppy");
     while(1){;}
-    /* temp */
     fdcRegStatus3_s temp;
     FdcCheckSt3(temp);
-    /* end of temp*/
+    /* end of temp */
 
     uint8_t result = 0;
 

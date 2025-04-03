@@ -25,8 +25,6 @@ _load_kernel:
     ; to delete later
     call print_string_32
 
-    jmp $
-
     call FdcInit
 
     jmp $

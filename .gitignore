@@ -10,6 +10,7 @@ build/
 
 # Exceptions
 !docker_run.sh
+stage2.ld
 
 # Prerequisites
 *.d

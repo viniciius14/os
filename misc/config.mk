@@ -20,7 +20,7 @@ KERNEL_LIB=$(BUILD_DIR)/kernel/lib
 DEBUG_DIR=$(BUILD_DIR)/debug
 
 ASM=nasm
-ASM_FLAGS=-W+all -W+error -W+orphan-labels -W+macro-params -W+error -O0
+ASM_FLAGS=-W+all -W+error -W+orphan-labels -W+macro-params -W+error
 ASM_FORMAT=-f elf32
 
 CC=i386-elf-gcc
@@ -34,5 +34,5 @@ OBJ_CPY=i386-elf-objcopy
 OBJ_FLAGS=-O binary
 
 EMULATOR=qemu-system-i386
-EMUL_FLAGS=-m 128M -serial stdio -no-reboot -d out_asm,in_asm,op,op_opt,op_ind,int,exec,cpu,cpu_reset,strace -D $(DEBUG_DIR)/QEMU_log.txt
+EMUL_FLAGS=-m 128M -serial stdio -no-reboot -d out_asm,in_asm,int,exec,cpu -D $(DEBUG_DIR)/QEMU_log.txt
 

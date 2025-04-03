@@ -1,11 +1,9 @@
 [bits 16]
-[global _stage2_16]
-[extern _stage2_32]
+[org 0x7E00]
+; [global _stage2_16]
+; [extern _stage2_32]
 
-%include "macros.S"
-%include "print_string.S"
-
-section _stage2_16.text
+section .text
 
 _stage2_16:
     cli
@@ -32,9 +30,12 @@ _stage2_16:
     CODE_SEG equ code_descriptor - GDT_Start
     DATA_SEG equ data_descriptor - GDT_Start
 
-    jmp 0x08:_stage2_32
+    jmp CODE_SEG:EOF
 
     unreachable
+
+%include "macros.S"
+%include "print_string.S"
 
 section .data
 
@@ -63,3 +64,5 @@ GDT_End:
 GDT_Descriptor:
     dw GDT_End - GDT_Start - 1  ; size
     dd GDT_Start                ; start
+
+EOF:

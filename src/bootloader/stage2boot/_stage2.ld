@@ -2,7 +2,7 @@ ENTRY(_stage2_32)
 OUTPUT_FORMAT(elf32-i386)
 
 SECTIONS {
-    . = 0x7E8B;
+    . = START_ADDRESS;
 
     .text : {
         *(_stage2_32.text)
